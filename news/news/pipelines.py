@@ -10,4 +10,5 @@ from itemadapter import ItemAdapter
 
 class NewsPipeline:
     def process_item(self, item, spider):
-        return item
+        with open("my_meiju.txt",'a') as fp:
+            fp.write(item['title'].encode("utf8") + '\n')
