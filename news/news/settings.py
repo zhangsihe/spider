@@ -12,7 +12,7 @@ BOT_NAME = 'news'
 SPIDER_MODULES = ['news.spiders']
 NEWSPIDER_MODULE = 'news.spiders'
 #FEED_EXPORT_ENCODING = 'gb2312'
-ITEM_PIPELINES = {'foreign.pipelines.NewsPipeline':100}
+ITEM_PIPELINES = {'news.pipelines.NewsPipeline':100}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'news (+http://www.yourdomain.com)'
 
