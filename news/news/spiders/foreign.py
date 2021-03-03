@@ -9,7 +9,5 @@ class ForeignSpider(scrapy.Spider):
 
     def parse(self, response):
         item = NewsItem()
-        print(response.xpath('//title/text()'))
-
-        item['title'] = response.xpath('//title/text()')
+        item['title'] = response.xpath('//title/text()').extract()[0]
         yield item
