@@ -13,6 +13,9 @@ SPIDER_MODULES = ['news.spiders']
 NEWSPIDER_MODULE = 'news.spiders'
 #FEED_EXPORT_ENCODING = 'GB2312'
 ITEM_PIPELINES = {'news.pipelines.NewsPipeline':100}
+DOWNLOADER_MIDDLEWARES = {
+    'news.middlewares.NewsDownloaderMiddleware': 1000
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'news (+http://www.yourdomain.com)'
 
