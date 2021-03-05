@@ -9,5 +9,6 @@ import scrapy
 class NewsItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    mztj_title = scrapy.Field()
-    mztj_href  = scrapy.Field()
+    mztj_title   = scrapy.Field()
+    mztj_href    = scrapy.Field()
+    mztj_article = scrapy.Field()
