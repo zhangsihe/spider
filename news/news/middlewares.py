@@ -86,7 +86,7 @@ class NewsDownloaderMiddleware:
         # Must either;
         # - return a Response object
         # - return a Request object
-        response = HtmlResponse(url=response.url, body=response.body, encoding='utf-8')
+        # response = HtmlResponse(url=response.url, body=response.body, encoding='utf-8')
         # - or raise IgnoreRequest
         return response
 
