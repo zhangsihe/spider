@@ -15,9 +15,10 @@ class ForeignSpider(scrapy.Spider):
             item['mztj_href']  = ecahTr.xpath('./a/@href').extract()[0]
             item['mztj_title'] = ecahTr.xpath('./a/text()').extract()[0].strip()
 
-            #articleResponse = scrapy.Request(item['mztj_href'])
-            #item['mztj_article'] = articleResponse.xpath('//div[@class="divContent"]').extract()[0]
-            item['mztj_article'] = 'dafdasdf'
+            item['mztj_article'] = scrapy.Request(url=item['mztj_href'],callback=self.parse_article)
 
             yield item
             break
+
+    def parse_article(self,response):
+        return response.xpath('//div[@clas="divContent"]').extract()[0]
