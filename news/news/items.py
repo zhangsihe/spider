@@ -12,3 +12,4 @@ class NewsItem(scrapy.Item):
     mztj_title   = scrapy.Field()
     mztj_href    = scrapy.Field()
     mztj_article = scrapy.Field()
+    mztj_author = scrapy.Field()
