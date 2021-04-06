@@ -18,9 +18,9 @@ class NewsPipeline(object):
 
         titleMd5 = hashlib.md5(item['mztj_title'].encode(encoding='UTF-8')).hexdigest();
 
-        sql = "SELECT * FROM cnforex_bjdp where md5=" + titleMd5
+        sql = "SELECT * FROM cnforex_bjdp where md5=%s"
 
-        mycursor.execute(sql)
+        mycursor.execute(sql,(titleMd5,))
 
         myresult = mycursor.fetchall()
 
