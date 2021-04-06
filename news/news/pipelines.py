@@ -16,7 +16,9 @@ class NewsPipeline(object):
         mydb = mysql.connector.connect(host="121.4.191.75", user="root", passwd="!Zz1995711", database="spider")
         mycursor = mydb.cursor()
 
-        sql = "SELECT * FROM sites ORDER BY name DESC"
+        titleMd5 = hashlib.md5(item['mztj_title'].encode(encoding='UTF-8')).hexdigest();
+
+        sql = "SELECT * FROM cnforex_bjdp where md5=" + titleMd5
 
         mycursor.execute(sql)
 
