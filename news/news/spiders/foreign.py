@@ -9,13 +9,13 @@ class ForeignSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        trResource = response.xpath('//div[@id="d_left"]')
+        trResource = response.xpath('//div[@id="d_left"]/table/tbody/tr')
         for ecahTr in trResource:
             item = NewsItem()
-            item['mztj_href']         = ecahTr.xpath('./a[@target="_blank"]/@href').extract()[0]
-            item['mztj_title']        = ecahTr.xpath('./a[@target="_blank"]/text()').extract()[0].strip()
-            item['mztj_author']       = ecahTr.xpath('./a[@style="font-weight:bold;"]/text()').extract()[0].strip()
-            item['mztj_writing_time'] = ecahTr.xpath('./td[@style="width:15%;"]/text()').extract()[0].strip()
+            item['mztj_href']         = ecahTr.xpath('./td/a[@target="_blank"]/@href').extract()[0]
+            item['mztj_title']        = ecahTr.xpath('./td/a[@target="_blank"]/text()').extract()[0].strip()
+            item['mztj_author']       = ecahTr.xpath('./td/a[@style="font-weight:bold;"]/text()').extract()[0].strip()
+            item['mztj_writing_time'] = ecahTr.xpath('./td[@style="width: 15%;"]/text()').extract()[0].strip()
 
             yield scrapy.Request(url=item['mztj_href'],callback=self.parse_article,meta={'item':item})
 
