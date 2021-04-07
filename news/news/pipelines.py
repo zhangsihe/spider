@@ -27,9 +27,9 @@ class NewsPipeline(object):
         if len(myresult) <= 0:
             thisTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-            sql = "INSERT INTO cnforex_bjdp (title,author, body,md5,create_time,update_time) VALUES (%s, %s, %s, %s, %s, %s)"
+            sql = "INSERT INTO cnforex_bjdp (title, author, body, md5, writing_time, create_time, update_time) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             val = (item['mztj_title'], item['mztj_author'], item['mztj_article'],
-                   hashlib.md5(item['mztj_title'].encode(encoding='UTF-8')).hexdigest(), thisTime, thisTime)
+                   hashlib.md5(item['mztj_title'].encode(encoding='UTF-8')).hexdigest(), item['mztj_writing_time'] , thisTime, thisTime)
             mycursor.execute(sql, val)
 
             mydb.commit()
