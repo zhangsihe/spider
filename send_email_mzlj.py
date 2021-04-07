@@ -1,16 +1,17 @@
+# coding=UTF-8
+
 import smtplib
 import mysql.connector
 import datetime
 import var_dump
 
 from email.mime.text import MIMEText
-from pprint import pprint
 
 mydb = mysql.connector.connect(host="121.4.191.75", user="root", passwd="!Zz1995711", database="spider")
 mycursor = mydb.cursor(dictionary=True)
 
 sql = "SELECT * FROM cnforex_bjdp where (author=%s or author=%s) and send_email=%s limit 1"
-mycursor.execute(sql, ('墨竹言金', '陈招锡', '0',))
+mycursor.execute(sql, ('墨竹言金', '陈召锡', '0',))
 articleData = mycursor.fetchall()
 
 if len(articleData) > 0:
