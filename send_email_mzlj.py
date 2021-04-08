@@ -29,7 +29,7 @@ if len(articleData) > 0:
     mail = MIMEText("<p>" + articleData[0]['title'] + '&nbsp;&nbsp;&nbsp;<b>' + articleData[0]['author'] + "</b></p>" +
                     articleData[0]['body'], 'html', 'utf-8')
 
-    mail['Subject'] = datetime.datetime.now().strftime("%m%d") + '日墨竹论金爬取数据'
+    mail['Subject'] = articleData[0]['writing_time'] + '墨竹论金爬取数据'
     mail['From']    = username_send  # 发件人
     mail['To']      = username_recv  # 收件人；[]里的三个是固定写法，别问为什么，我只是代码的搬运工
 
